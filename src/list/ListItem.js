@@ -131,7 +131,7 @@ const ListItem = props => {
             {React.isValidElement(avatar)
               ? avatar
               : <Avatar
-                  avatarStyle={avatarStyle && avatarStyle}
+                  avatarStyle={[ props.resizeMode && { resizeMode: props.resizeMode }, avatarStyle && avatarStyle]}
                   containerStyle={avatarContainerStyle && avatarContainerStyle}
                   overlayContainerStyle={
                     avatarOverlayContainerStyle && avatarOverlayContainerStyle
