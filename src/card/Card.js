@@ -75,7 +75,7 @@ const Card = props => {
               style={[{ width: null, height: 150 }, imageStyle && imageStyle]}
               source={image}
             >
-              <View style={styles.overlayContainer}>
+              <View style={[styles.overlayContainer, props.overlayContainerStyle && props.overlayContainerStyle]}>
                 {featuredTitle &&
                   <Text
                     style={[
