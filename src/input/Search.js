@@ -92,7 +92,7 @@ class Search extends Component {
               clearIcon.style && clearIcon.style,
             ]}
             name={clearIcon.name || 'close'}
-            onPress={this.clearText.bind(this)}
+            onPress={this.props.onClearIconPress || this.clearText.bind(this)}
             color={clearIcon.color || colors.grey3}
           />}
         {showLoadingIcon &&
