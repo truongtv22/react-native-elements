@@ -20,15 +20,17 @@ const FormLabel = props => {
       style={[styles.container, containerStyle && containerStyle]}
       {...attributes}
     >
-      <Text
+    {React.isValidElement(children)
+      ? children
+      : <Text
         style={[
           styles.label,
           labelStyle && labelStyle,
-          fontFamily && { fontFamily },
+          fontFamily && { fontFamily }
         ]}
       >
         {children}
-      </Text>
+      </Text>}
     </View>
   );
 };
