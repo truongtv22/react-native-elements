@@ -19,7 +19,9 @@ const FormValidationMessage = props => {
       style={[styles.container, containerStyle && containerStyle]}
       {...attributes}
     >
-      <Text
+    {React.isValidElement(children)
+      ? children
+      : <Text
         style={[
           styles.label,
           labelStyle && labelStyle,
@@ -27,7 +29,7 @@ const FormValidationMessage = props => {
         ]}
       >
         {children}
-      </Text>
+      </Text>}
     </View>
   );
 };
