@@ -74,6 +74,11 @@ const Avatar = props => {
     Component = component;
   }
 
+  let IconComponent = Icon
+  if (props.iconComponent) {
+    IconComponent = props.iconComponent;
+  }
+
   const renderUtils = () => {
     if (showEditButton) {
       const editButtonProps = { ...editButton };
@@ -130,7 +135,7 @@ const Avatar = props => {
       );
     } else if (icon) {
       return (
-        <Icon
+        <IconComponent
           style={iconStyle && iconStyle}
           color={icon.color || 'white'}
           name={icon.name || 'user'}
