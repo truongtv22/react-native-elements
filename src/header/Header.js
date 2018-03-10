@@ -5,10 +5,10 @@ import DummyNavButton from './DummyNavButton';
 import NavButton from './NavButton';
 import Title from './Title';
 
-function generateChild(value, type) {
+function generateChild(value, style, type) {
   if (React.isValidElement(value)) {
     return (
-      <View key={type}>
+      <View key={type} style={style}>
         {value}
       </View>
     );
@@ -20,12 +20,12 @@ function generateChild(value, type) {
   return type === 'center' ? null : <DummyNavButton key={type} />;
 }
 
-function populateChildren(propChildren) {
+function populateChildren(propChildren, styleChildren) {
   const childrenArray = [];
 
-  const leftComponent = generateChild(propChildren.leftComponent, 'left');
-  const centerComponent = generateChild(propChildren.centerComponent, 'center');
-  const rightComponent = generateChild(propChildren.rightComponent, 'right');
+  const leftComponent = generateChild(propChildren.leftComponent, styleChildren.leftComponentStyle, 'left');
+  const centerComponent = generateChild(propChildren.centerComponent, styleChildren.centerComponentStyle, 'center');
+  const rightComponent = generateChild(propChildren.rightComponent, styleChildren.rightComponentStyle, 'right');
 
   childrenArray.push(leftComponent, centerComponent, rightComponent);
 
@@ -39,6 +39,9 @@ const Header = props => {
     leftComponent,
     centerComponent,
     rightComponent,
+    leftComponentStyle,
+    centerComponentStyle,
+    rightComponentStyle,
     backgroundColor,
     outerContainerStyles,
     innerContainerStyles,
@@ -52,6 +55,10 @@ const Header = props => {
       leftComponent,
       centerComponent,
       rightComponent,
+    }, {
+      leftComponentStyle,
+      centerComponentStyle,
+      rightComponentStyle,
     });
   }
 
